@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Profile</title>
+    <link rel="stylesheet" href="Design.css">
+</head>
+<body>
+
+    
+    <div class="navbar">
+        <a href="#home" id="homeLink" class="nav-link" style="display:none;"></a>
+        <a href="#gallery" id="galleryLink" class="nav-link" style="display:none;"></a>
+        <a href="#about" id="aboutLink" class="nav-link" style="display:none;"></a>
+        <div id="authLinks">
+            <a href="#login" id="loginLink" class="nav-link">Login</a>
+            <a href="#logout" id="logoutLink" class="nav-link" style="display:none;">Logout</a>
+        </div>
+    </div>
+
+    
+    <section id="login" class="page">
+        <div class="login-container">
+            <div class="login-box">
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <div class="textbox">
+                        <input type="text" placeholder="Username" id="username" required>
+                    </div>
+                    <div class="textbox">
+                        <input type="password" placeholder="Password" id="password" required>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                </form>
+                <p id="error-message" style="color:red; display:none;">Invalid username or password. Please try again.</p>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="home" class="page" style="display:none;">
+        <h1>Welcome to my website</h1>
+        <div class="profile-info">
+            <img src="My Profile.jpg" alt="Profile Picture" class="profile-pic">
+            <p id="profileName">Rishel Ann T.Cartajenas</p>
+            <p id="profileContact">Phone: 09639639360</p>
+        </div>
+        <button id="goToGallery" class="btn">Gallery</button>
+        <button id="goToAbout" class="btn">About</button>
+    </section>
+
+    
+    <section id="gallery" class="page" style="display:none;">
+        <h1>Gallery</h1>
+        <p>My Favorite Pictures in every Events</p>
+        
+        <div class="gallery-grid">
+            <img src="days1.a.jpg" alt="Image 1" class="gallery-img">
+           <img src="day1.b.jpg" alt="Image 2" class="gallery-img"
+              >
+               <h2>Day 1</h2>
+ <p>Pagarbuhay competition - we may not have won, but the memories and friendships made are priceless!</p>
+            <img src="day.2.jpg" alt="Image 3" class="gallery-img">
+            
+            <img src="day2.jpg" alt="Image 4" class="gallery-img">
+             <h2>Day 2</h2>
+ <p>"Huge congrats to my Friend on an amazing dance!  Didn't get the placement you hoped for, but your talent and hard work are undeniable. Keep shining! 🌟"</p>
+            <img src="day3.jpg" alt="Image 5" class="gallery-img">
+            
+            <img src="days3.jpg" alt="Image 1" class="gallery-img">
+             <h2>Day 3</h2>
+ <p>"Charin absolutely killed it on the cheerdance floor today! So proud of all their hard work and dedication."</p>
+            <img src="final.jpg" al="Image 2" class="gallery-img">
+            
+            <img src="final2.jpg" alt="Image 3" class="gallery-img">
+             <h2>Day 4</h2>
+ <p>"Supporting my amazing friends as they take on the Mr. and Miss competition!  Win or lose, they're both winners in my book.  Friendship goals! 🥰"</p>
+            <img src="erika.jpg" alt="Image 4" class="gallery-img">
+            
+            <img src="nash.jpg" alt="Image 5" class="gallery-img">
+        </div>
+        <button class="btn" id="backToHomeFromGallery">Back to Home</button>
+    </section>
+
+    
+    <section id="about" class="page" style="display:none;">
+        <h1>What is the LUX MUNDIS CUP?</h1>
+            <p>The LUX MUNDIS CUP is an international event that celebrates sportsmanship, competition, and cultural exchange. The 2024 edition brought together participants and fans from around the Tangub City Global College for an unforgettable experience.</p>
+            <h2>My Experience</h2>
+            <p>During the event, I had the privilege of witnessing some of the most exciting moments. The atmosphere was electric, and I had the chance to meet incredible people from all over the Tangub City Globa lCollege. Here are some highlights from my time there:</p>
+        <button class="btn" id="backToHomeFromAbout">Back to Home</button>
+    </section>
+
+    <script>
+        
+        const validUsername = 'Rishel';
+        const validPassword = '123';
+
+        
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === validUsername && password === validPassword) {
+                
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('home').style.display = 'block';
+
+              
+                document.getElementById('homeLink').style.display = 'inline-block';
+                document.getElementById('galleryLink').style.display = 'inline-block';
+                document.getElementById('aboutLink').style.display = 'inline-block';
+                document.getElementById('logoutLink').style.display = 'inline-block';
+
+              
+                document.getElementById('loginLink').style.display = 'none';
+            } else {
+            
+                document.getElementById('error-message').style.display = 'block';
+            }
+        });
+
+        
+        document.getElementById('goToGallery').addEventListener('click', function() {
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('gallery').style.display = 'block';
+        });
+
+        
+        document.getElementById('goToAbout').addEventListener('click', function() {
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('about').style.display = 'block';
+        });
+
+        
+        document.getElementById('backToHomeFromGallery').addEventListener('click', function() {
+            document.getElementById('gallery').style.display = 'none';
+            document.getElementById('home').style.display = 'block';
+        });
+
+        
+        document.getElementById('backToHomeFromAbout').addEventListener('click', function() {
+            document.getElementById('about').style.display = 'none';
+            document.getElementById('home').style.display = 'block';
+        });
+
+        
+        document.getElementById('logoutLink').addEventListener('click', function() {
+            
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('gallery').style.display = 'none';
+            document.getElementById('about').style.display = 'none';
+            document.getElementById('logoutLink').style.display = 'none';
+            document.getElementById('login').style.display = 'block';
+
+            
+            document.getElementById('loginLink').style.display = 'inline-block';
+        });
+    </script>
+</body>
+</html>
